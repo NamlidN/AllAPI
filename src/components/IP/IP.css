@@ -1,0 +1,55 @@
+.E {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(15, 15, 15);
+    width: 100vw;
+    height: 100vh;
+    font-size: 25pt;
+
+}
+.E ul {
+ width: 90vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: .5rem;
+    padding: 1rem;
+    border-radius: 1rem;
+
+}
+.E ul li{
+    width: 80%;
+ height: 2.5rem;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 2px solid rgb(128, 128, 128);
+    border-radius: .5rem ;
+    transition: 1s;
+    background-color: rgb(37, 37, 37);
+color: rgb(248, 228, 202);
+
+}
+.E ul li p {
+    padding: 0 1.5rem;
+ width: fit-content;
+ height: min-content;
+font-family: monospace;
+}
+.E ul li:hover{
+border-radius: 2rem;
+color: rgb(220, 217, 217);
+ width:90vw;
+ height: 3.5rem;
+ transition: .4s;
+ box-shadow: 1rem 1rem 50rem rgb(255, 255, 255);
+font-size: 30pt;
+}
+.E ul li p::selection {
+color: blueviolet;
+background-color: red;
+
+}

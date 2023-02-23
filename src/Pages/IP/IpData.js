@@ -19,7 +19,7 @@ function IpData() {
 
     return (
         <div className="E"><ul>
-            <li> <p>  IP</p><p>{ipD.ip}</p></li>
+            <li className="LongIPContainer"> <p>  IP</p><p className="LongIP">{ipD.ip}</p></li>
             <li> <p> City</p><p>{ipD.city} </p></li>
             <li> <p> Region</p><p>{ipD.region} </p></li>
             <li> <p>  Region Code</p><p> {ipD.region_code}</p></li>

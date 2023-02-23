@@ -1,0 +1,72 @@
+.HangManPage{
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+}
+
+#text{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+#hangman{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:4rem;
+    width: 10rem;
+    font-size: 23pt;
+    font-weight: bolder;
+    border-radius: 0 1.5rem 0 1.5rem;
+
+}
+#text h1{
+    width: 2.5rem;
+text-align: center;
+background-color: rgb(255, 255, 255);
+}
+.Solved{
+    background-color: black;
+}
+.TastenContainer{
+    width: 90%;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.Tasten{
+    font-size: 20pt;
+    height: 2rem;
+    width: 5rem;
+    border-radius: .5rem;
+    background-color: gray;
+    color: white;
+    
+}
+#StartBTN{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:5rem;
+    width: 10rem;
+    font-size: 23pt;
+    font-weight: bolder;
+    border-radius:  2.5rem  0 .5rem 1rem;
+    background-color: rgb(0, 0, 0);
+    color: rgb(140, 136, 136);
+}
+.inputContainer{
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    padding: 5rem 0 0 0;
+    display: none;
+  
+}

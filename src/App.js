@@ -1,17 +1,28 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
-import Coin from './components/Crypto/C';
-import IpData from './components/IP/IpData';
+import NavBar from "./components/NavBar/NavBar";
+import Coin from './Pages/Crypto/C';
+import HangMan from "./Pages/HangMan/HangMan";
+import Home from './Pages/Home/Home';
+import IpData from './Pages/IP/IpData';
 
 
 function App() {
 
   return (   
-    <div className="App">
-  <IpData />
 
-
-    </div>
+ <BrowserRouter>
+  <NavBar />
+ <Routes>
+<Route path="/" element={<Home />}/>
+<Route path="/Coin" element={<Coin />}/>
+<Route path="/IpData" element={<IpData />}/>
+<Route path="/HangMan" element={<HangMan/> }/>
+ </Routes>
+ </BrowserRouter>
   );
 }
 
 export default App;
+
+

@@ -1,0 +1,34 @@
+.NavLinkContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    text-decoration: none;
+    font-size: 20pt;
+    height: 10vh;
+}
+
+.NavLink {
+    text-decoration: none;
+    color: white;
+    transition: 1s;
+    background-color: none;
+    border-left: solid .2rem rgb(206, 0, 0);
+    border-right: solid .2rem rgb(206, 0, 0);
+    border-top: solid .2rem rgb(206, 0, 0);
+    border-radius: .5rem;
+
+}
+
+.NavLink:hover {
+  text-shadow: 1rem -2rem 1rem white;
+    text-decoration: none;
+    border-left:  none;
+    border-right:  none;
+    border-top:none;
+    border-bottom: solid .5rem rgb(206, 0, 0);
+    color: white;
+    background-color: none;
+    transition: 1s;
+
+}

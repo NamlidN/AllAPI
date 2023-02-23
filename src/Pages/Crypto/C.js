@@ -13,7 +13,6 @@ function Coin() {
     CC();
   }, []);
 console.log(c);
-  const B = c.slice(0, 21);
   return (
     <span className='newBody'>
     <div className='Hcontainer'>

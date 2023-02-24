@@ -36,9 +36,9 @@ export default function HangMan() {
   let textDiv;
   let letterDiv;
 function Start() {
-    textDiv = document.getElementById("text");
-    let StartBtn = document.getElementById("StartBTN");
-    let TContainer = document.getElementById("TastenContainer");
+    textDiv = document.getElementById("textHang");
+    let StartBtn = document.getElementById("StartBTNHang");
+    let TContainer = document.getElementById("TastenContainerHang");
     TContainer.style.display = "flex";
     StartBtn.style.display = "none";
     for (let i = 0; i < Wort.length; i++) {
@@ -49,18 +49,18 @@ function Start() {
 }
 return (
     <span className="HangManPage">
-    <span id="text"></span>
-    <button id="StartBTN" onClick={Start}>
+    <span id="textHang"></span>
+    <button id="StartBTNHang" onClick={Start}>
         Start Game
     </button>
-    <span className="inputContainer" id="TastenContainer">
+    <span className="inputContainerHang" id="TastenContainerHang">
         <h1>{Buchstabe}</h1>
-        <span className="TastenContainer" >
+        <span className="TastenContainerHang" >
         {Tastatur.map((tasten, i) => {
             return (
             <button
                 key={i}
-                className="Tasten"
+                className="TastenHang"
                 onClick={() => {
                 setBuchstabe(tasten.toUpperCase());
                 }}>

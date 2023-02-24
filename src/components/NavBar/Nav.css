@@ -12,7 +12,6 @@
     text-decoration: none;
     color: white;
     transition: 1s;
-    background-color: none;
     border-left: solid .2rem rgb(206, 0, 0);
     border-right: solid .2rem rgb(206, 0, 0);
     border-top: solid .2rem rgb(206, 0, 0);
@@ -27,8 +26,13 @@
     border-right:  none;
     border-top:none;
     border-bottom: solid .5rem rgb(206, 0, 0);
-    color: white;
-    background-color: none;
     transition: 1s;
-
+}
+.NavLink:focus{
+  color: white;
+  text-decoration: none;
+  border-left:  none;
+  border-right:  none;
+  border-top:none;
+  background-color: inherit!important;
 }

@@ -16,7 +16,7 @@ console.log(c);
   return (
     <span className='newBody'>
     <div className='Hcontainer'>
-      <p className='inputContainer'>
+      <p className='inputContainerC'>
         <input className='suche' placeholder='Bitcoin.... ' onChange={(e) => setSuchL(e.target.value.toLowerCase())} /> {//wtf bor why 
 } 
         </p>
@@ -27,7 +27,8 @@ return suchL ==="" ? item : item.name.toLowerCase().includes(suchL)
             <div className='Ccontainer' key={index}>
               <span className='fir'>
                 <span className='jonge'>
-                  <p>Rank: {coins.rank}</p>
+                  <span  className='ConRank' >
+                  <p>Rank: {coins.rank}</p></span>
                   <p> {coins.symbol}</p>
                 </span>
                 <span className='sec'>

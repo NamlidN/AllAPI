@@ -35,7 +35,7 @@ export default function HangMan() {
   let Wort = wort.toUpperCase();
   let textDiv;
   let letterDiv;
-function Start() {
+function StartHang() {
     textDiv = document.getElementById("textHang");
     let StartBtn = document.getElementById("StartBTNHang");
     let TContainer = document.getElementById("TastenContainerHang");
@@ -43,14 +43,25 @@ function Start() {
     StartBtn.style.display = "none";
     for (let i = 0; i < Wort.length; i++) {
     letterDiv = document.createElement("h1");
+    letterDiv.setAttribute('id', Wort.charAt(i) )
+    letterDiv.classList.add("HangH1")
     letterDiv.textContent = Wort.charAt(i);
     textDiv.appendChild(letterDiv);
     }
 }
+function SubHang(){
+        let HangH1 = document.querySelectorAll('#'+Buchstabe)
+        console.log(HangH1)
+        for (let i = 0; i < HangH1.length; i++) {
+            const RichtigHang = HangH1[i];
+            RichtigHang.classList.add("SolvedHang")
+        }
+}
 return (
     <span className="HangManPage">
-    <span id="textHang"></span>
-    <button id="StartBTNHang" onClick={Start}>
+    <span id="textHang">
+    </span>
+    <button id="StartBTNHang" onClick={StartHang}>
         Start Game
     </button>
     <span className="inputContainerHang" id="TastenContainerHang">
@@ -58,27 +69,17 @@ return (
         <span className="TastenContainerHang" >
         {Tastatur.map((tasten, i) => {
             return (
-            <button
-                key={i}
-                className="TastenHang"
-                onClick={() => {
+            <button key={i} className="TastenHang" onClick={() => {
                 setBuchstabe(tasten.toUpperCase());
-                }}>
-                {tasten}
-            </button>
+                }}>{tasten}</button>
             );
         })}
         </span>
-        <button id="hangman">Submit</button>
+        <button id="hangman" onClick={SubHang}>Submit</button>
     </span>
     </span>
 );
 }
-//TODO Funktion die den buchstaben mit denm wort überprüft und den jeweiligen buschstaben aufedckt 
-
 //! Hangman animation
-
-//? viel spas zukunfts dilman <3
-
-
+//? viel spas zukunfts dilman <3 Danke viel spaß mit der animation hahaha <3
 //!  opacity animation mit classLIst ADD atadt display none 

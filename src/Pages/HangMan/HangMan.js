@@ -3,7 +3,7 @@ import "./HangMan.css";
 
 export default function HangMan() {
   const [Buchstabe, setBuchstabe] = useState("");
-  let wort = "Beispieltext";
+  let wort = "BBBBBBA";
   const Tastatur = [
     "A",
     "B",
@@ -49,13 +49,25 @@ function StartHang() {
     textDiv.appendChild(letterDiv);
     }
 }
-function SubHang(){
-        let HangH1 = document.querySelectorAll('#'+Buchstabe)
-        console.log(HangH1)
-        for (let i = 0; i < HangH1.length; i++) {
-            const RichtigHang = HangH1[i];
-            RichtigHang.classList.add("SolvedHang")
+function HangSolved(){
+    let HangH1Solved = document.querySelectorAll('.SolvedHang')
+    console.log(HangH1Solved)
+    if( Wort.length === HangH1Solved.length ){
+        console.log("Hallo")
+        for (let i = 0; i < HangH1Solved.length; i++) {
+            const SolvedHang = HangH1Solved[i];
+            SolvedHang.classList.add("WonHang")
         }
+    }
+}
+function SubHang(){
+    let HangH1 = document.querySelectorAll('#'+Buchstabe)
+    console.log(HangH1)
+    for (let i = 0; i < HangH1.length; i++) {
+        const RichtigHang = HangH1[i];
+        RichtigHang.classList.add("SolvedHang")
+    }
+    HangSolved()
 }
 return (
     <span className="HangManPage">
@@ -81,5 +93,6 @@ return (
 );
 }
 //! Hangman animation
-//? viel spas zukunfts dilman <3 Danke viel spaß mit der animation hahaha <3
-//!  opacity animation mit classLIst ADD atadt display none 
+//? viel spaß zukunfts dilman <3 Danke viel spaß mit der animation <3
+//TODO animation mit classLIst ADD stadt display none für den startBTN und so
+// !   visibility: hidden;  visibility: visible;

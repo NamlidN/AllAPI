@@ -1,4 +1,4 @@
-.HangManPage{
+.HangManPage {
     height: 90vh;
     display: flex;
     justify-content: center;
@@ -7,16 +7,17 @@
     flex-direction: column;
 }
 
-#textHang{
+#textHang {
     display: flex;
     flex-direction: row;
     gap: 1rem;
 }
-#hangman{
+
+#hangman {
     display: flex;
     justify-content: center;
     align-items: center;
-    height:4rem;
+    height: 4rem;
     width: 10rem;
     font-size: 23pt;
     font-weight: bolder;
@@ -26,28 +27,38 @@
     background-color: black;
     animation: rainbowHang 1.5s infinite alternate;
 }
-.HangH1{
+
+.HangH1 {
     width: 2.5rem;
     height: 2.5rem;
-text-align: center;
-background-color: rgb(255, 255, 255);
+    text-align: center;
+    background-color: rgb(255, 255, 255);
 }
-.SolvedHang{
-text-align: center;
+
+.SolvedHang {
+    text-align: center;
     background-color: initial;
 }
-.WonHang{
-animation: rainbowHangBackground 1s infinite alternate;
+
+.WonHang {
+    animation: rainbowHangBackground 1s infinite alternate;
 }
-@keyframes rainbowHangBackground { 
-    0% {background-color: hsl(113, 100%, 50%)
-        ;color: hsl(307, 100%, 50%);
-        width: 2rem;}
-    100% {background-color: hsl(334, 100%, 50%);
+
+@keyframes rainbowHangBackground {
+    0% {
+        background-color: hsl(113, 100%, 50%);
+        color: hsl(307, 100%, 50%);
+        width: 2rem;
+    }
+
+    100% {
+        background-color: hsl(334, 100%, 50%);
         color: hsl(180, 100%, 50%);
-    width: 5rem;}
-  }
-.TastenContainerHang{
+        width: 5rem;
+    }
+}
+
+.TastenContainerHang {
     width: 90%;
     display: flex;
     gap: 1rem;
@@ -55,41 +66,161 @@ animation: rainbowHangBackground 1s infinite alternate;
     align-items: center;
     flex-wrap: wrap;
 }
-.TastenHang{
+
+.TastenHang {
     font-size: 20pt;
     height: 2rem;
     width: 5rem;
     border-radius: .5rem;
     background-color: gray;
     color: white;
-    
+
 }
 
 @keyframes rainbowHang {
-    0% {border-color: hsl(0, 100%, 50%);}
-    100% {border-color: hsl(255, 100%, 50%);}
-  }
-#StartBTNHang{
+    0% {
+        border-color: hsl(0, 100%, 50%);
+    }
+
+    100% {
+        border-color: hsl(255, 100%, 50%);
+    }
+}
+
+#StartBTNHang {
     display: flex;
     justify-content: center;
     align-items: center;
-    height:5rem;
+    height: 5rem;
     width: 10rem;
     font-size: 23pt;
     font-weight: bolder;
-    border-radius:  1rem;
+    border-radius: 1rem;
     background-color: rgb(0, 0, 0);
     color: rgb(140, 136, 136);
     border: .5px solid hsl(0, 100%, 50%);
     animation: rainbowHang 1.5s infinite alternate;
 }
-.inputContainerHang{
-    width: 100%;
+
+.inputContainerHang {
+    width: 80%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 3rem;
-    padding: 5rem 0 0 0;
+    gap: .5rem;
+    padding: 1rem 0 0 0;
     display: none;
-  
+
+}
+
+#HangAnimationContainer {
+    height: 30rem;
+    width: 40rem;
+    display: none;
+    border-radius: .5rem;
+    border: solid red 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.BuchstabeHang {
+    height: 1rem;
+    margin: 2rem;
+}
+
+#HangAnimation1 {
+    width: 5rem;
+    height: .7rem;
+    position: absolute;
+    transform: rotate(135deg);
+    bottom: 1rem;
+    left: 3rem;
+    display: none;
+}
+
+#HangAnimation2 {
+    width: 5rem;
+    height: .7rem;
+    position: absolute;
+    transform: rotate(45deg);
+    bottom: 1rem;
+    left: 6rem;
+    display: none;
+}
+
+#HangAnimation3 {
+    width: .7rem;
+    height: 20rem;
+    position: absolute;
+    bottom: 0rem;
+    left: 6.6rem;
+    display: none;
+}
+
+#HangAnimation4 {
+    width: 12rem;
+    height: .7rem;
+    position: absolute;
+    bottom: 20rem;
+    left: 6.6rem;
+    display: none;
+}
+
+#HangAnimation4_1 {
+    width: 5rem;
+    height: .5rem;
+    position: absolute;
+    transform: rotate(135deg);
+    bottom: 18.5rem;
+    left: 6rem;
+    display: none;
+}
+
+#HangAnimation5 {
+    width: .3rem;
+    height: 7rem;
+    position: absolute;
+    bottom: 13rem;
+    left: 18rem;
+    display: none;
+}
+
+#HangAnimation6 {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 10rem;
+    position: absolute;
+    border: solid rgb(51, 255, 44) .3rem;
+    bottom: 9.5rem;
+    left: 16.5rem;
+    display: none;
+}
+#HangAnimation6_1 {
+    width: .5rem;
+    height: 5rem;
+    position: absolute;
+    background-color: rgb(43, 226, 86);
+    bottom: 4.5rem;
+    left: 18rem;
+    display: none;
+}
+#HangAnimation6_2 {
+    width: 5rem;
+    height: 3rem;
+    position: absolute;
+    border-radius: 10rem 10rem 10rem 0rem;
+    border-top: solid .3rem rgb(43, 226, 86);
+    bottom: 5.5rem;
+    left: 15.8rem;
+    display: none;
+}
+#HangAnimation6_3 {
+    width: 4rem;
+    height: 4rem;
+    position: absolute;
+    border-radius: 50rem 50rem 50rem 50rem;
+    border-top: solid .5rem rgb(43, 226, 86);
+    bottom:.5rem;
+    left: 16.2rem;
+    display: none;
 }

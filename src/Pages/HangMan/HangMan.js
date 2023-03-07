@@ -2,7 +2,6 @@ import { useState } from "react";
 import "./HangMan.css";
 
 export default function HangMan() {
-
   const [Buchstabe, setBuchstabe] = useState("");
   let wort = "BBBBBBA";
   const Tastatur = [
@@ -36,9 +35,11 @@ export default function HangMan() {
   let Wort = wort.toUpperCase();
   let textDiv;
   let letterDiv;
+  let WrongCounter = 0;
   function StartHang() {
-    let HangContainerAnimation = document.getElementById("HangAnimationContainer");
-
+    let HangContainerAnimation = document.getElementById(
+      "HangAnimationContainer"
+    );
     HangContainerAnimation.style.display = "block";
     textDiv = document.getElementById("textHang");
     let StartBtn = document.getElementById("StartBTNHang");
@@ -55,20 +56,34 @@ export default function HangMan() {
   }
   function HangSolved() {
     let HangH1Solved = document.querySelectorAll(".SolvedHang");
-    console.log(HangH1Solved);
     if (Wort.length === HangH1Solved.length) {
-        let HangAnimationContainer = document.getElementById(
-            "HangAnimationContainer")
-            HangAnimationContainer.style.display = "none";
-      console.log("Hallo");
+      let HangAnimationContainer = document.getElementById(
+        "HangAnimationContainer"
+      );
+      HangAnimationContainer.style.display = "none";
       for (let i = 0; i < HangH1Solved.length; i++) {
         const SolvedHang = HangH1Solved[i];
         SolvedHang.classList.add("WonHang");
       }
     }
   }
+
   function SubHang() {
     let HangH1 = document.querySelectorAll("#" + Buchstabe);
+
+    console.log(HangH1);
+    if (HangH1.length === 0) {
+      WrongCount();
+    } else {
+      for (let i = 0; i < HangH1.length; i++) {
+        const RichtigHang = HangH1[i];
+        RichtigHang.classList.add("SolvedHang");
+      }
+      HangSolved();
+    }
+  }
+  function WrongCount() {
+    WrongCounter++;
     let HangAnimation1 = document.getElementById("HangAnimation1");
     let HangAnimation2 = document.getElementById("HangAnimation2");
     let HangAnimation3 = document.getElementById("HangAnimation3");
@@ -79,45 +94,67 @@ export default function HangMan() {
     let HangAnimation6_1 = document.getElementById("HangAnimation6_1");
     let HangAnimation6_2 = document.getElementById("HangAnimation6_2");
     let HangAnimation6_3 = document.getElementById("HangAnimation6_3");
-    console.log(HangH1);
-    if (HangH1.length === 0) {
-      HangAnimation1.style.backgroundColor = "blue";
-      HangAnimation1.style.display = "block";
-      HangAnimation2.style.backgroundColor = "blue";
-      HangAnimation2.style.display = "block";
-      HangAnimation3.style.backgroundColor = "blue";
-      HangAnimation3.style.display = "block";
-      HangAnimation4.style.backgroundColor = "blue";
-      HangAnimation4.style.display = "block";
-      HangAnimation4_1.style.backgroundColor = "blue";
-      HangAnimation4_1.style.display = "block";
-      HangAnimation5.style.backgroundColor = "blue";
-      HangAnimation5.style.display = "block";
-      HangAnimation6.style.display = "block";
-      HangAnimation6_1.style.display = "block";
-      HangAnimation6_2.style.display = "block";
-      HangAnimation6_3.style.display = "block";
-    } else {
-      for (let i = 0; i < HangH1.length; i++) {
-        const RichtigHang = HangH1[i];
-        RichtigHang.classList.add("SolvedHang");
-      }
-      HangSolved();
+
+    switch (WrongCounter) {
+      case 1:
+        HangAnimation1.style.backgroundColor = "blue";
+        HangAnimation1.style.display = "block";
+        break;
+      case 2:
+        HangAnimation2.style.backgroundColor = "blue";
+        HangAnimation2.style.display = "block";
+        break;
+      case 3:
+        HangAnimation3.style.backgroundColor = "blue";
+        HangAnimation3.style.display = "block";
+        break;
+      case 4:
+        HangAnimation4.style.backgroundColor = "blue";
+        HangAnimation4.style.display = "block";
+        HangAnimation4_1.style.backgroundColor = "blue";
+        HangAnimation4_1.style.display = "block";
+        break;
+      case 5:
+        HangAnimation5.style.backgroundColor = "blue";
+        HangAnimation5.style.display = "block";
+        break;
+      case 6:
+        HangAnimation6.style.display = "block";
+        break;
+      case 7:
+        HangAnimation6_1.style.display = "block";
+
+        break;
+      case 8:
+        HangAnimation6_2.style.display = "block";
+
+        break;
+      case 9:
+        HangAnimation6_3.style.display = "block";
+        document.getElementById("TastenContainerHang").style.display = "none";
+        let HangH1 = document.querySelectorAll("#" + Buchstabe);
+        for (let i = 0; i < HangH1.length; i++) {
+          const RichtigHang = HangH1[i];
+          RichtigHang.classList.add("SolvedHang");
+        }
+        break;
+      default:
+        break;
     }
   }
   return (
     <span className="HangManPage">
       <span id="HangAnimationContainer">
-        <div id="HangAnimation1" ></div>
-        <div id="HangAnimation2" ></div>
-        <div id="HangAnimation3" ></div>
-        <div id="HangAnimation4" ></div>
-        <div id="HangAnimation4_1" ></div>
-        <div id="HangAnimation5" ></div>
-        <div id="HangAnimation6" ></div>
-        <div id="HangAnimation6_1" ></div>
-        <div id="HangAnimation6_2" ></div>
-        <div id="HangAnimation6_3" ></div>
+        <div id="HangAnimation1"></div>
+        <div id="HangAnimation2"></div>
+        <div id="HangAnimation3"></div>
+        <div id="HangAnimation4"></div>
+        <div id="HangAnimation4_1"></div>
+        <div id="HangAnimation5"></div>
+        <div id="HangAnimation6"></div>
+        <div id="HangAnimation6_1"></div>
+        <div id="HangAnimation6_2"></div>
+        <div id="HangAnimation6_3"></div>
       </span>
       <span id="textHang"></span>
       <button id="StartBTNHang" onClick={StartHang}>

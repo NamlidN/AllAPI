@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "./HangMan.css";
 
 export default function HangMan() {
@@ -371,9 +372,11 @@ console.log(WrongCounter)
         <div id="HangAnimation6_3"></div>
       </span>
       <span id="textHang"></span>
-      <button type="reloade" id="Reloader" className="LanguageBTN" onClick={refreshPage}>
+      <Link id="Reloader"   to="HangMan">
+
+      <button type="reloade"  className="LanguageBTN" onClick={refreshPage}>
       TRY AGAIN
-      </button>
+      </button></Link>
       <button
         id="Germ"
         className="LanguageBTN"

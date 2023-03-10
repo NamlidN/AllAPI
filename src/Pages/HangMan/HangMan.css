@@ -122,7 +122,7 @@
     margin: 1rem;
 }
 #Reloader{
-    display: flex;
+    /* display: flex;
     justify-content: center;
     align-items: center;
     height: 5rem;
@@ -134,7 +134,7 @@
     color: rgb(140, 136, 136);
     border: .5px solid hsl(0, 100%, 50%);
     animation: rainbowHang 1.5s infinite alternate;
-    margin: 1rem;
+    margin: 1rem; */
 }
 #textHang{
     margin-top: 1rem;

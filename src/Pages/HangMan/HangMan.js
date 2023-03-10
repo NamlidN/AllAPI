@@ -238,9 +238,7 @@ export default function HangMan() {
   let textDiv;
   let letterDiv;
   const [WrongCounter , setCount] = useState(1)
-  const refreshPage = () => {
-    window.location.reload();
-  };
+
   function StartHang() {
     let HangContainerAnimation = document.getElementById(
       "HangAnimationContainer"
@@ -374,7 +372,7 @@ console.log(WrongCounter)
       <span id="textHang"></span>
       <Link id="Reloader"   to="HangMan">
 
-      <button type="reloade"  className="LanguageBTN" onClick={refreshPage}>
+      <button type="reloade"  className="LanguageBTN">
       TRY AGAIN
       </button></Link>
       <button

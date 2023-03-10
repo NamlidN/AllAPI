@@ -3,8 +3,205 @@ import "./HangMan.css";
 
 export default function HangMan() {
   const [Buchstabe, setBuchstabe] = useState("");
-  let wort = "BBBBBBA";
-  const Tastatur = [
+  const [Wort, setWort] = useState("a");
+  const wortGerm = [
+    "Abend",
+    "Affe",
+    "Agil",
+    "Aktiv",
+    "Allee",
+    "Alptraum",
+    "Ananas",
+    "Anfang",
+    "Anker",
+    "Anruf",
+    "Anzug",
+    "Apfel",
+    "Applaus",
+    "Arbeit",
+    "Arzt",
+    "Aspekt",
+    "Atem",
+    "Athlet",
+    "Attraktiv",
+    "Aufbau",
+    "Auge",
+    "Ausbildung",
+    "Ausflug",
+    "Ausgabe",
+    "Ausgang",
+    "Auswahl",
+    "Auto",
+    "Avocado",
+    "Bach",
+    "Backen",
+    "Badewanne",
+    "Bahn",
+    "Ballett",
+    "Bambus",
+    "Banane",
+    "Bank",
+    "Bar",
+    "Bart",
+    "Basis",
+    "Batterie",
+    "Baum",
+    "Baustelle",
+    "Becher",
+    "Becken",
+    "Befehl",
+    "Begleitung",
+    "Behälter",
+    "Behandlung",
+    "Beispiel",
+    "Beitrag",
+    "Bekannt",
+    "Bemühen",
+    "Bereich",
+    "Beruf",
+    "Bescheid",
+    "Besitz",
+    "Bestand",
+    "Besuch",
+    "Betrieb",
+    "Bewegung",
+    "Bewusst",
+    "Bibel",
+    "Bier",
+    "Bild",
+    "Bildung",
+    "Birne",
+    "Blatt",
+    "Blau",
+    "Bleistift",
+    "Blitz",
+    "Block",
+    "Blume",
+    "Bluse",
+    "Bohne",
+    "Boot",
+    "Bote",
+    "Boxen",
+    "Braten",
+    "Brauch",
+    "Braut",
+    "Brief",
+    "Brot",
+    "Brücke",
+    "Brunnen",
+    "Brust",
+    "Buch",
+    "Bürger",
+    "Burg",
+    "Bus",
+    "Butter",
+  ];
+  const wortEng = [
+    "apple",
+    "banana",
+    "cherry",
+    "dog",
+    "elephant",
+    "flower",
+    "guitar",
+    "house",
+    "internet",
+    "jacket",
+    "kangaroo",
+    "lemon",
+    "mountain",
+    "notebook",
+    "ocean",
+    "pencil",
+    "queen",
+    "rainbow",
+    "sunflower",
+    "telephone",
+    "umbrella",
+    "village",
+    "watermelon",
+    "xylophone",
+    "yellow",
+    "zebra",
+    "airport",
+    "basketball",
+    "computer",
+    "dolphin",
+    "elephant",
+    "fireworks",
+    "garden",
+    "hamburger",
+    "insect",
+    "jungle",
+    "keyboard",
+    "laptop",
+    "moon",
+    "newspaper",
+    "octopus",
+    "pizza",
+    "quilt",
+    "robot",
+    "sunset",
+    "tiger",
+    "umbrella",
+    "vacation",
+    "window",
+    "xylophone",
+    "yacht",
+    "zebra",
+    "baseball",
+    "camera",
+    "desk",
+    "elephant",
+    "football",
+    "golf",
+    "helicopter",
+    "island",
+    "jacket",
+    "kite",
+    "lemonade",
+    "motorcycle",
+    "night",
+    "ocean",
+    "pizza",
+    "quilt",
+    "racecar",
+    "snowman",
+    "train",
+    "umbrella",
+    "violin",
+    "waterfall",
+    "xylophone",
+    "yoga",
+    "zebra",
+    "airplane",
+    "bike",
+    "coffee",
+    "donut",
+    "elephant",
+    "frog",
+    "guitar",
+    "hat",
+    "ice cream",
+    "jellyfish",
+    "kangaroo",
+    "lion",
+    "movie",
+    "notebook",
+    "ocean",
+    "penguin",
+    "queen",
+    "rocket",
+    "sailing",
+    "tulip",
+    "umbrella",
+    "volcano",
+    "water",
+    "xylophone",
+    "yawn",
+    "zebra",
+  ];
+  const [Tastatur, setTastatur] = useState([
     "A",
     "B",
     "C",
@@ -31,11 +228,20 @@ export default function HangMan() {
     "X",
     "Y",
     "Z",
-  ];
-  let Wort = wort.toUpperCase();
+    "Ä",
+    "Ö",
+    "Ü",
+  ]);
+
+  let WortGerman = wortGerm;
+
+  let WortEnglisch = wortEng;
   let textDiv;
   let letterDiv;
-  let WrongCounter = 0;
+  let WrongCounter = 0
+  const refreshPage = () => {
+    window.location.reload();
+  };
   function StartHang() {
     let HangContainerAnimation = document.getElementById(
       "HangAnimationContainer"
@@ -43,9 +249,13 @@ export default function HangMan() {
     HangContainerAnimation.style.display = "block";
     textDiv = document.getElementById("textHang");
     let StartBtn = document.getElementById("StartBTNHang");
+    let GermBtn = document.getElementById("Germ");
+    let EngBtn = document.getElementById("Eng");
     let TContainer = document.getElementById("TastenContainerHang");
     TContainer.style.display = "flex";
     StartBtn.style.display = "none";
+    GermBtn.style.display = "none";
+    EngBtn.style.display = "none";
     for (let i = 0; i < Wort.length; i++) {
       letterDiv = document.createElement("h1");
       letterDiv.setAttribute("id", Wort.charAt(i));
@@ -70,7 +280,7 @@ export default function HangMan() {
 
   function SubHang() {
     let HangH1 = document.querySelectorAll("#" + Buchstabe);
-
+console.log(WrongCounter)
     console.log(HangH1);
     if (HangH1.length === 0) {
       WrongCount();
@@ -83,7 +293,8 @@ export default function HangMan() {
     }
   }
   function WrongCount() {
-    WrongCounter++;
+    console.log("WrongCount wird ausgefürt")
+    WrongCounter++
     let HangAnimation1 = document.getElementById("HangAnimation1");
     let HangAnimation2 = document.getElementById("HangAnimation2");
     let HangAnimation3 = document.getElementById("HangAnimation3");
@@ -132,11 +343,13 @@ export default function HangMan() {
       case 9:
         HangAnimation6_3.style.display = "block";
         document.getElementById("TastenContainerHang").style.display = "none";
-        let HangH1 = document.querySelectorAll("#" + Buchstabe);
+        let HangH1 = document.querySelectorAll(".HangH1");
         for (let i = 0; i < HangH1.length; i++) {
           const RichtigHang = HangH1[i];
-          RichtigHang.classList.add("SolvedHang");
+          RichtigHang.classList.add("FailHang");
         }
+        let Reloader = document.getElementById("Reloader");
+        Reloader.style.display = "flex";
         break;
       default:
         break;
@@ -157,6 +370,40 @@ export default function HangMan() {
         <div id="HangAnimation6_3"></div>
       </span>
       <span id="textHang"></span>
+      <button type="reloade" id="Reloader" className="LanguageBTN" onClick={refreshPage}>
+      TRY AGAIN
+      </button>
+      <button
+        id="Germ"
+        className="LanguageBTN"
+        onClick={() => {
+          const randomIndex = Math.floor(Math.random() * WortGerman.length);
+          setWort(WortGerman[randomIndex].toUpperCase());
+          let StartBtn = document.getElementById("StartBTNHang");
+          StartBtn.style.display = "Flex";
+          let GermBtn = document.getElementById("Germ");
+          let EngBtn = document.getElementById("Eng");
+          GermBtn.style.display = "none";
+          EngBtn.style.display = "none";
+        }}>
+        German
+      </button>
+      <button
+        id="Eng"
+        className="LanguageBTN"
+        onClick={() => {
+          const randomIndex = Math.floor(Math.random() * WortEnglisch.length);
+          setWort(WortEnglisch[randomIndex].toUpperCase());
+          setTastatur(Tastatur.slice(0, 26));
+          let StartBtn = document.getElementById("StartBTNHang");
+          StartBtn.style.display = "Flex";
+          let GermBtn = document.getElementById("Germ");
+          let EngBtn = document.getElementById("Eng");
+          GermBtn.style.display = "none";
+          EngBtn.style.display = "none";
+        }}>
+        English
+      </button>
       <button id="StartBTNHang" onClick={StartHang}>
         Start Game
       </button>
@@ -183,8 +430,5 @@ export default function HangMan() {
     </span>
   );
 }
-//! Hangman animation
-//? viel spaß zukunfts dilman <3 Danke viel spaß mit der animation <3 joonge die animaton </3
-//TODO animation mit classLIst ADD stadt display none für den startBTN und so1
 // !   visibility: hidden;  visibility: visible;
-// switch case im else ++i oder so ez
+//TODO WrongCount FIX 

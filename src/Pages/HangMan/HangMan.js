@@ -432,5 +432,5 @@ console.log(WrongCounter)
     </span>
   );
 }
-// !   visibility: hidden;  visibility: visible;
-//TODO WrongCount FIX 
+// !   visibility: hidden;  visibility: visible; für benuzte tasten...
+//TODO Reload FIXEN!!!

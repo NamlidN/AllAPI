@@ -119,6 +119,7 @@
     color: rgb(140, 136, 136);
     border: .5px solid hsl(0, 100%, 50%);
     animation: rainbowHang 1.5s infinite alternate;
+    margin: 1rem;
 }
 #Reloader{
     display: flex;

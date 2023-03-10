@@ -232,13 +232,11 @@ export default function HangMan() {
     "Ö",
     "Ü",
   ]);
-
   let WortGerman = wortGerm;
-
   let WortEnglisch = wortEng;
   let textDiv;
   let letterDiv;
-  let WrongCounter = 0
+  const [WrongCounter , setCount] = useState(1)
   const refreshPage = () => {
     window.location.reload();
   };
@@ -275,6 +273,9 @@ export default function HangMan() {
         const SolvedHang = HangH1Solved[i];
         SolvedHang.classList.add("WonHang");
       }
+      document.getElementById("TastenContainerHang").style.display = "none";
+      let Reloader = document.getElementById("Reloader");
+      Reloader.style.display = "flex";
     }
   }
 
@@ -294,7 +295,7 @@ console.log(WrongCounter)
   }
   function WrongCount() {
     console.log("WrongCount wird ausgefürt")
-    WrongCounter++
+   setCount(WrongCounter+ 1)
     let HangAnimation1 = document.getElementById("HangAnimation1");
     let HangAnimation2 = document.getElementById("HangAnimation2");
     let HangAnimation3 = document.getElementById("HangAnimation3");

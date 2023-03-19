@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import "./HangMan.css";
 
 export default function HangMan() {
   const [Buchstabe, setBuchstabe] = useState("");
   const [Wort, setWort] = useState("a");
+  const [HANGKEY, setKey] = useState("");
   const wortGerm = [
     "Abend",
     "Affe",
@@ -277,11 +277,17 @@ export default function HangMan() {
       Reloader.style.display = "flex";
     }
   }
-
+  let  HANGTASTENKEY = document.getElementById(HANGKEY)
   function SubHang() {
+  console.log(Buchstabe.length)
+  if(Buchstabe.length === 0){
+    return
+  }
+  setBuchstabe("")
+     HANGTASTENKEY.style.background = "black"
+     HANGTASTENKEY.style.opacity = ".3"
+     HANGTASTENKEY.style.pointerEvents = "none"
     let HangH1 = document.querySelectorAll("#" + Buchstabe);
-console.log(WrongCounter)
-    console.log(HangH1);
     if (HangH1.length === 0) {
       WrongCount();
     } else {
@@ -370,11 +376,7 @@ console.log(WrongCounter)
         <div id="HangAnimation6_3"></div>
       </span>
       <span id="textHang"></span>
-      <Link id="Reloader"   to="HangMan">
-
-      <button type="reloade"  className="LanguageBTN">
-      TRY AGAIN
-      </button></Link>
+  
       <button
         id="Germ"
         className="LanguageBTN"
@@ -416,9 +418,13 @@ console.log(WrongCounter)
             return (
               <button
                 key={i}
+
                 className="TastenHang"
+                id={i}
                 onClick={() => {
-                  setBuchstabe(tasten.toUpperCase());
+                  setBuchstabe(tasten.toUpperCase())
+                setKey(i)
+                  ;
                 }}>
                 {tasten}
               </button>

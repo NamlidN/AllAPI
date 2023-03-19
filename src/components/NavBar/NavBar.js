@@ -12,9 +12,6 @@ export default function NavBar() {
         <Link className="NavLink" to="Coin">Crypto Coins </Link>
         <Link className="NavLink" to="IpData"> IP Tracker und co </Link>
         <Link className="NavLink" to="HangMan">HangMan</Link>
-        
-        
-        
         </span>
     );
   }

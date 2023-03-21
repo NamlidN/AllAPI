@@ -3,7 +3,7 @@ import './SpaceGame.css';
 
 let SpaceSPAN
 let SpaceMap
-let MAP_ITEM_ELEMENTS = 416
+let MAP_ITEM_ELEMENTS = 2028
 function SpaceGame(){
 
  

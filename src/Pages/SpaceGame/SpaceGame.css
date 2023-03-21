@@ -5,12 +5,12 @@
     height: 87vh;
     margin:  0 auto;
     display:none;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ; /*! 52 */
     font-size: 39pt;
 }
 .SpaceGameMap{
     background-color: blueviolet;
-   margin: .1rem;
+   border: solid rgb(27, 209, 52) .1px;
 }
 
 

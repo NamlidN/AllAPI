@@ -3,8 +3,9 @@ import './SpaceGame.css';
 
 let SpaceSPAN
 let SpaceMap
+let MAP_ITEM_ELEMENTS = 416
 function SpaceGame(){
-const [SpaceMapItems, setSMI] =  useState(169);
+const [SpaceMapItems, setSMI] =  useState(MAP_ITEM_ELEMENTS);
  
 
 
@@ -32,7 +33,7 @@ const [SpaceMapItems, setSMI] =  useState(169);
 export default SpaceGame
 
 
-//TODO Mit JS die elemente ( MAP ) erstellen 
+// Mit JS die elemente ( MAP ) erstellen //!FERTIG
 //TODO flugzeug stylen
 //TODO schuss stylen 
 //TODO LEBEN oder Herzen?

@@ -5,7 +5,7 @@ let SpaceSPAN
 let SpaceMap
 let MAP_ITEM_ELEMENTS = 416
 function SpaceGame(){
-const [SpaceMapItems, setSMI] =  useState(MAP_ITEM_ELEMENTS);
+
  
 
 
@@ -14,7 +14,7 @@ const [SpaceMapItems, setSMI] =  useState(MAP_ITEM_ELEMENTS);
  stBTNSPACe.style.display = 'none'
     SpaceMap = document.getElementById("SpaceMap")
     SpaceMap.style.display = 'grid'
-      for (let i = 0; i < SpaceMapItems; i++) {
+      for (let i = 0; i < MAP_ITEM_ELEMENTS; i++) {
         SpaceSPAN = document.createElement("span");
         SpaceSPAN.classList.add("SpaceGameMap");
         SpaceMap.appendChild(SpaceSPAN);

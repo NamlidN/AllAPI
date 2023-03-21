@@ -20,6 +20,7 @@
 }
 
 .NavLink:hover {
+  color: white;
   text-shadow: 1rem -2rem 1rem white;
     text-decoration: none;
     border-left:  none;
@@ -29,10 +30,13 @@
     transition: 1s;
 }
 .NavLink:focus{
-  color: white;
   text-decoration: none;
-  border-left:  none;
-  border-right:  none;
-  border-top:none;
+  color: white;
+  transition: 1s;
+  border-left: solid .2rem rgb(206, 0, 0);
+  border-right: solid .2rem rgb(206, 0, 0);
+  border-top: solid .2rem rgb(206, 0, 0);
+  border-radius: .5rem;
+  border-bottom: none;
   background-color: inherit!important;
 }

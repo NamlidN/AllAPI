@@ -5,6 +5,7 @@ import Coin from './Pages/Crypto/C';
 import HangMan from "./Pages/HangMan/HangMan";
 import Home from './Pages/Home/Home';
 import IpData from './Pages/IP/IpData';
+import SpaceGame from "./Pages/SpaceGame/SpaceGame";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
 <Route path="/Coin" element={<Coin />}/>
 <Route path="/IpData" element={<IpData />}/>
 <Route path="/HangMan" element={<HangMan/> }/>
+<Route path="/SpaceGame" element={<SpaceGame/> }/>
  </Routes>
  </BrowserRouter>
   );

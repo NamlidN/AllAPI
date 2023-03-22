@@ -1,49 +1,142 @@
+import { useState } from "react";
+import "./SpaceGame.css";
 
-import './SpaceGame.css';
+let SpaceSPAN;
+let SpaceMap;
+let MAP_ITEM_ELEMENTS = 1000;
+// let PlayerGun
+let PlayerShoot
+function SpaceGame() {
+  const [keyCode, setKeyCode] = useState(null);
 
-let SpaceSPAN
-let SpaceMap
-let MAP_ITEM_ELEMENTS = 2028
-function SpaceGame(){
+  const [PlayerLeft, setPL] = useState(974);
+  const [PlayerRight, setPR] = useState(976);
+  const [Playerbarrel, setPBarrel] = useState(PlayerLeft - 49);
+  // const [PlayerOrMap, setPlayerOrMap] = useState();
+  function SartSpaceGame() {
+    let stBTNSPACe = document.getElementById("BTN_SPACE");
+    stBTNSPACe.style.display = "none";
+    SpaceMap = document.getElementById("SpaceMap");
+    SpaceMap.style.display = "grid";
 
- 
+    for (let i = 1; i <= MAP_ITEM_ELEMENTS; i++) {
+      SpaceSPAN = document.createElement("span");
+      SpaceSPAN.classList.add("SpaceGameMap");
+      SpaceSPAN.setAttribute("id", i);
+      SpaceSPAN.textContent = i;
+      SpaceMap.appendChild(SpaceSPAN);
+    }
+    for (let i = PlayerLeft; i <= PlayerRight; i++) {
+      let Player = document.getElementById(i);
+      Player.classList.add("PlayerSpace");
+      Player.classList.remove("SpaceGameMap");
+      PlayerShoot = document.getElementById(Playerbarrel);
+      PlayerShoot.classList.add("PlayerSpaceShoot");
+      PlayerShoot.classList.remove("SpaceGameMap");
+    }
 
 
- function SartSpaceGame (){
- let stBTNSPACe =  document.getElementById('BTN_SPACE')
- stBTNSPACe.style.display = 'none'
-    SpaceMap = document.getElementById("SpaceMap")
-    SpaceMap.style.display = 'grid'
-      for (let i = 0; i < MAP_ITEM_ELEMENTS; i++) {
-        SpaceSPAN = document.createElement("span");
-        SpaceSPAN.classList.add("SpaceGameMap");
-        SpaceMap.appendChild(SpaceSPAN);
-      }
- }
- 
-    return(
-        <span>
-        <button id='BTN_SPACE' className='StartBTN_SPACE blobSPACE' onClick={SartSpaceGame}> <span className='StartBTN_SPACEITEM'>Start Game </span></button>
-        <div className='SpaceContainer' id='SpaceMap'>
-        </div>
-        </span>
-    )
+
+    
+  
+    // PlayerGun = document.createElement("span");
+    // PlayerGun.classList.add("PlayerGun");
+    // PlayerGun.setAttribute("id", "Playerbarrel");
+    // PlayerShoot.appendChild(PlayerGun);
+
+  }
+
+
+  function handleKeyDown(e) {
+    console.log(keyCode)
+    setKeyCode(e.keyCode);
+    switch (e.keyCode) {
+      case 37:
+        if (PlayerLeft > 951) {
+          for (let i = PlayerLeft; i <= PlayerRight; i++) {
+            let Player = document.getElementById(i);
+            PlayerShoot = document.getElementById(Playerbarrel);
+            PlayerShoot.classList.remove("PlayerSpaceShoot");
+            PlayerShoot.classList.add("SpaceGameMap");
+            Player.classList.remove("PlayerSpace");
+            Player.classList.add("SpaceGameMap"); 
+            console.log("1 For " + PlayerLeft + " " + PlayerRight);
+          }
+          setPL((prev) => prev - 1);
+          setPR((prev) => prev - 1);
+          setPBarrel((prev) => prev - 1);
+          for (let i = PlayerLeft - 1; i <= PlayerRight - 1; i++) {
+            PlayerShoot = document.getElementById(Playerbarrel -1);
+            PlayerShoot.classList.add("PlayerSpaceShoot");
+            PlayerShoot.classList.remove("SpaceGameMap");
+            let Player = document.getElementById(i);
+            Player.classList.remove("SpaceGameMap");
+            Player.classList.add("PlayerSpace");
+            console.log("2 For " + PlayerLeft + " " + PlayerRight);
+          }
+        }
+
+        // Links
+        break;
+
+      case 39:
+        if (PlayerLeft < 1000) {
+          for (let i = PlayerLeft; i <= PlayerRight; i++) {
+            let Player = document.getElementById(i);
+            PlayerShoot = document.getElementById(Playerbarrel);
+            PlayerShoot.classList.remove("PlayerSpaceShoot");
+            PlayerShoot.classList.add("SpaceGameMap");
+            Player.classList.remove("PlayerSpace");
+            Player.classList.add("SpaceGameMap"); 
+            console.log("1 For " + PlayerLeft + " " + PlayerRight);
+          }
+          setPL((prev) => prev + 1);
+          setPR((prev) => prev + 1);
+          setPBarrel((prev) => prev + 1);
+          for (let i = PlayerLeft + 1; i <= PlayerRight + 1; i++) {
+            PlayerShoot = document.getElementById(Playerbarrel +1);
+            PlayerShoot.classList.add("PlayerSpaceShoot");
+            PlayerShoot.classList.remove("SpaceGameMap");
+            let Player = document.getElementById(i);
+            Player.classList.remove("SpaceGameMap");
+            Player.classList.add("PlayerSpace");
+            console.log("2 For " + PlayerLeft + " " + PlayerRight);
+          }
+        }
+
+        // rechts
+        break;
+      default:
+        break;
+    }
+  }
+
+  return (
+    <span id="WorldSPace" tabIndex="0" onKeyDown={handleKeyDown}>
+      <button
+        id="BTN_SPACE"
+        className="StartBTN_SPACE blobSPACE"
+        onClick={SartSpaceGame}>
+        <span className="StartBTN_SPACEITEM">Start Game </span>
+      </button>
+      <div className="SpaceContainer" id="SpaceMap"></div>
+    </span>
+  );
 }
 
-export default SpaceGame
-
+export default SpaceGame;
 
 // Mit JS die elemente ( MAP ) erstellen //!FERTIG
 //TODO flugzeug stylen
-//TODO schuss stylen 
+//TODO schuss stylen
 //TODO LEBEN oder Herzen?
-//TODO flug funktion 
-//TODO schuss funktion 
+//TODO flug funktion
+//TODO schuss funktion
 //??
 //TODO MateRandom schuss funktion bot
 //TODO MateRandom flug funktion bot
 //TODO gegner flugzeug stylen
-//TODO Gegner LEBEN 
-//TODO gegner schuss stylen 
+//TODO Gegner LEBEN SCHILD??
+//TODO gegner schuss stylen
 //TODO BOSS
-//TODO LEVEL
+//TODO HighScore 

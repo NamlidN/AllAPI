@@ -1,16 +1,42 @@
-
-.SpaceContainer{
-    background-color: aqua;
-    width: 40vw;
-    height: 87vh;
-    margin:  0 auto;
-    display:none;
-   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ; /*! 52 */
-    font-size: 39pt;
-}
-.SpaceGameMap{
+.SpaceContainer {
     background-color: blueviolet;
-   border: solid rgb(27, 209, 52) .1px;
+    width: min-content;
+    height: min-content;
+    margin: auto auto;
+    display: none;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    /*! 50 */
+}
+
+.PlayerSpace {
+    width: 1rem;
+    height: 2.48rem;
+    background-color: goldenrod !important;
+    font-size: 5pt;
+    overflow: visible;
+}
+
+
+
+.PlayerSpaceShoot {
+    height: 1rem;
+    width: 1rem;
+    border-top: solid black;
+    border-radius: .5rem .5rem 0 0;
+    align-self: flex-end;
+    font-size: 5pt;
+    overflow: visible;
+background-color: black;
+
+}
+
+.SpaceGameMap {
+    width: 1rem;
+    height: 2.48rem;
+    background-color: blueviolet;
+    border: solid rgb(255, 255, 255) .1px;
+    font-size: 5pt;
+    overflow: visible;
 }
 
 
@@ -20,20 +46,23 @@
     100% {
         color: hsl(88, 86%, 27%);
         transform: rotate(-45deg);
-      
+
     }
+
     33% {
         color: hsl(184, 100%, 50%);
         transform: rotate(-70deg);
-      
+
     }
+
     66% {
         color: hsl(255, 100%, 50%);
         transform: rotate(-75deg);
 
     }
 }
-.StartBTN_SPACEITEM{
+
+.StartBTN_SPACEITEM {
     display: flex;
     margin: 20% auto;
     justify-content: center;
@@ -43,6 +72,7 @@
     background-color: rgb(0, 0, 0);
     animation: rainbowSpace 2.5s infinite alternate;
 }
+
 .StartBTN_SPACE {
     display: flex;
     margin: 20% auto;
@@ -57,20 +87,23 @@
     border-color: hsl(0, 100%, 50%);
     overflow: hidden;
     border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%;
-    animation: blobSPACESTART   2.5s linear infinite;
+    animation: blobSPACESTART 2.5s linear infinite;
 }
 
 @keyframes blobSPACESTART {
+
     0%,
     100% {
         transform: rotate(45deg);
         border-radius: 42% 56% 72% 28% / 42% 42% 56% 48%;
     }
+
     33% {
         border-color: hsl(166, 100%, 50%);
         transform: rotate(75deg);
         border-radius: 42% 28% 48% 48% / 28% 28% 72% 72%;
     }
+
     66% {
         border-color: hsl(255, 100%, 50%);
         transform: rotate(75deg);

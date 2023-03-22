@@ -9,6 +9,7 @@
     padding: 2rem 5rem;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     color: rgb(61, 98, 86);
+    user-select: none; 
 }
 .fir p::selection {
     color: blueviolet;

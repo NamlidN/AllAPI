@@ -16,7 +16,15 @@
     overflow: visible;
 }
 
-
+.PlayerBullet {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 100rem;
+    background-color: darkgreen;
+    align-self: center;
+    font-size: 5pt;
+    overflow: visible;
+}
 
 .PlayerSpaceShoot {
     height: 1rem;
@@ -26,7 +34,7 @@
     align-self: flex-end;
     font-size: 5pt;
     overflow: visible;
-background-color: black;
+    background-color: black;
 
 }
 
@@ -38,6 +46,42 @@ background-color: black;
     font-size: 5pt;
     overflow: visible;
 }
+
+.AnyKeySpace {
+    position: absolute;
+    display: none;
+    top: 50%;
+    place-content: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 35pt;
+    text-align: center;
+    color: rgba(255, 0, 0, 0.393);
+    text-shadow: .5rem 1rem 1rem rgba(255, 255, 255, 0.484);
+    animation: rainbowSpaceH1 2.5s infinite alternate;
+}
+
+@keyframes rainbowSpaceH1 {
+    0% {
+        font-size: 25pt;
+
+        color: rgba(255, 0, 0, 0.393);
+
+    }
+
+    100% {
+        font-size: 75pt;
+
+        color: rgba(255, 0, 0, 0.642);
+    }
+}
+
+
+
+
+
+
 
 
 @keyframes rainbowSpace {

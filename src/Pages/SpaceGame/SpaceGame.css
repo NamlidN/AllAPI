@@ -57,7 +57,7 @@
     width: 100%;
     font-size: 35pt;
     text-align: center;
-    color: rgba(255, 0, 0, 0.393);
+    color: rgba(0, 60, 255, 0.393);
     text-shadow: .5rem 1rem 1rem rgba(255, 255, 255, 0.484);
     animation: rainbowSpaceH1 2.5s infinite alternate;
 }
@@ -66,14 +66,14 @@
     0% {
         font-size: 25pt;
 
-        color: rgba(255, 0, 0, 0.393);
+        color: rgba(0, 60, 255, 0.393);
 
     }
 
     100% {
         font-size: 75pt;
 
-        color: rgba(255, 0, 0, 0.642);
+        color: rgba(0, 0, 255, 0.642);
     }
 }
 

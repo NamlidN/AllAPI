@@ -10,8 +10,8 @@ let PressAnyKeySpace;
 let Player_Shoot_Bullet_Tracer;
 let intervalId;
 let intervalId_Tracer;
-let Time = 1
-let Time_Tracer = 1
+let Time 
+let Time_Tracer 
 //!!!!!!!!!!!!!!!!!!!!!!!
 // let PlayerGun
 // const [PlayerOrMap, setPlayerOrMap] = useState();
@@ -60,33 +60,42 @@ function SpaceGame() {
   }
   function BullteShooterEvent() {
     intervalId = setInterval(() => {
+      console.log(Time)
+      if (Time === 19) {
+        clearInterval(intervalId);
+        return
+      } else{
       Player_Shoot_Bullet = document.getElementById(Playerbarrel - (Time * 100) / 2);
       Player_Shoot_Bullet.classList.remove("SpaceGameMap");
       Player_Shoot_Bullet.classList.add("PlayerBullet");
       Time++;
+      }
     }, 500);
   }
   function BullteShooterEvent_Remove() {
     setTimeout(() => {
       intervalId_Tracer = setInterval(() => {
+      console.log(Time_Tracer)
+      if (Time_Tracer  === 19 ) {
+        clearInterval(intervalId_Tracer);
+        return
+      } else{
         Player_Shoot_Bullet_Tracer = document.getElementById(Playerbarrel - (Time_Tracer * 100) / 2);
         Player_Shoot_Bullet_Tracer.classList.remove("PlayerBullet");
         Player_Shoot_Bullet_Tracer.classList.add("SpaceGameMap");
         Time_Tracer++;
+      }
       }, 500);
     }, 500);
   }
   function stopInterval() {
-    if (Time !== 100) {
-      return;
-    } else {
+    if (Time === 18 && Time_Tracer  === 18  ) {
       clearInterval(intervalId);
-    }
-    if (Time_Tracer !== 100) {
-      return;
-    } else {
       clearInterval(intervalId_Tracer);
-    }
+    } 
+    // if ( Time_Tracer  === 19  ) {
+    //   clearInterval(intervalId_Tracer);
+    // } 
   }
   function handleKeyDown(e) {
     setKeyCode(e.keyCode);
@@ -140,10 +149,14 @@ function SpaceGame() {
         // rechts
         break;
       case 32:
+         Time = 1
+         Time_Tracer = 1
+
         setPBullet(Playerbarrel - 50);
         BullteShooterEvent();
         BullteShooterEvent_Remove();
         stopInterval();
+        //Space
         break;
       default:
         break;

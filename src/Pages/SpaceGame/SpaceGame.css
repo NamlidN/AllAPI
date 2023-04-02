@@ -7,7 +7,24 @@
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     /*! 50 */
 }
+.BotSpace {
+    width: 1rem;
+    height: 2.48rem;
+    background-color: rgb(218, 32, 51) !important;
+    font-size: 5pt;
+    overflow: visible;
+}
+.BotSpaceShoot {
+    height: 1rem;
+    width: 1rem;
+    border-top: solid rgb(57, 6, 6);
+    border-radius:0 0 .5rem .5rem;
+    align-self: flex-start;
+    font-size: 5pt;
+    overflow: visible;
+    background-color: rgb(57, 6, 6);
 
+}
 .PlayerSpace {
     width: 1rem;
     height: 2.48rem;

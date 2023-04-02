@@ -1,7 +1,14 @@
 import { useState, useEffect } from 'react';
 import './C.css';
 
-
+//!!!!!!!!!!!!!!!!!!!!!!!
+// let PlayerGun
+// const [PlayerOrMap, setPlayerOrMap] = useState();
+// PlayerGun = document.createElement("span");
+// PlayerGun.classList.add("PlayerGun");
+// PlayerGun.setAttribute("id", "Playerbarrel");
+// PlayerShoot.appendChild(PlayerGun);
+//!!!!!!!!!!!!!!!!!!!!!!!
 function Coin() {
   const [suchL, setSuchL] = useState([]);
   const [c, setC] = useState([]);

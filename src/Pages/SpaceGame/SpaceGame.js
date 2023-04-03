@@ -10,13 +10,14 @@ let PressAnyKeySpace;
 let Player_Shoot_Bullet_Tracer;
 let intervalId;
 let intervalId_Tracer;
-let Botinterval
+let Botinterval;
 let Botinterval_Tracer;
 let Time = 1;
 let Time_Tracer = 1;
 let BTime = 1;
 let BTime_Tracer = 1;
-
+let RandomBotLeft = Math.floor(Math.random() * 100) - 5;
+let bOTShoot;
 function SpaceGame() {
   const [keyCode, setKeyCode] = useState(null);
   console.log(keyCode);
@@ -25,45 +26,86 @@ function SpaceGame() {
   const [Playerbarrel, setPBarrel] = useState(PlayerLeft - 49);
   const [PlayerBullet, setPBullet] = useState(null);
   const [BotBullet, setBBullet] = useState(null);
-  const [BotLeft, setBL] = useState(4);
-  const [BotRight, setBR] = useState(6);
+  const [BotLeft, setBL] = useState(RandomBotLeft);
+  const [BotRight, setBR] = useState(RandomBotLeft + 2);
   const [Botbarrel, setBBarrel] = useState(BotLeft + 51);
-
-  console.log(PlayerBullet + setBL + setBR +setBBarrel);
-  function BotSpawn(){
+  function BotSpawn() {
     for (let i = BotLeft; i <= BotRight; i++) {
-      let Player = document.getElementById(i);
-      Player.classList.add("BotSpace");
-      Player.classList.remove("SpaceGameMap");
-      PlayerShoot = document.getElementById(Botbarrel);
-      PlayerShoot.classList.add("BotSpaceShoot");
-      PlayerShoot.classList.remove("SpaceGameMap");
+      let bOT = document.getElementById(i);
+      bOT.classList.add("BotSpace");
+      bOT.classList.remove("SpaceGameMap");
+      bOTShoot = document.getElementById(Botbarrel);
+      bOTShoot.classList.add("BotSpaceShoot");
+      bOTShoot.classList.remove("SpaceGameMap");
     }
-BotShootRandom()
+    BotShootRandom();
   }
-  function BotShootRandom(){
-
-
-let CalBotinterval = setInterval(() => {
-
-  let BotCal = Math.floor(Math.random() * 10) + 1
-  console.log(BotCal+ "  BotCal")
-  if ( BotCal >= 4){
-    if(!BotBullet){
-      BotShooterEvent_Remove()
-      BotShooterEvent()
-    }else if(BotCal === 932342){
-
-clearInterval(CalBotinterval)
-    }else{
-      setTimeout(() => {}, 100)
+  function BotShootRandom() {
+    let CalBotinterval = setInterval(() => {
+      let BotCal = Math.floor(Math.random() * 10) + 1;
+      console.log(BotCal + "  BotCal");
+      if (BotCal >= 5) {
+        if (!BotBullet) {
+          BotShooterEvent_Remove();
+          BotShooterEvent();
+          Bot_Move();
+        } else if (BotCal === 932342) {
+          console.log(PlayerBullet + setBL + setBR + setBBarrel);
+          clearInterval(CalBotinterval);
+        }
+      } else {
+        setTimeout(() => {}, 2000);
+      }
+    }, 1000);
+  }
+  function Bot_Move() {
+    console.log("BOTMOVE11111111111111111111111111111111111111111111111111111111111111111111")
+    let BotMoveCal = Math.floor(Math.random() * 10) + 1;
+    if (BotMoveCal >= 5) {
+      if (BotLeft !== 1 && BotRight % 50 !== 0) {
+        setBL((prev) => prev + 1);
+        setBR((prev) => prev + 1);
+        setBBarrel((prev) => prev + 52);
+        for (let i = BotLeft; i <= BotRight; i++) {
+          let bOT = document.getElementById(i);
+          bOT.classList.remove("BotSpace");
+          bOT.classList.add("SpaceGameMap");
+          bOTShoot = document.getElementById(Botbarrel);
+          bOTShoot.classList.remove("BotSpaceShoot");
+          bOTShoot.classList.add("SpaceGameMap");
+        }
+        for (let i = BotLeft + 1; i <= BotRight + 1; i++) {
+          let bOT = document.getElementById(i);
+          bOT.classList.add("BotSpace");
+          bOT.classList.remove("SpaceGameMap");
+          bOTShoot = document.getElementById(Botbarrel + 1);
+          bOTShoot.classList.add("BotSpaceShoot");
+          bOTShoot.classList.remove("SpaceGameMap");
+        }
+      } else {
+        setBL((prev) => prev + 100);
+        setBR((prev) => prev + 100);
+        setBBarrel((prev) => prev + 52);
+        for (let i = BotLeft; i <= BotRight; i++) {
+          let bOT = document.getElementById(i);
+          bOT.classList.remove("BotSpace");
+          bOT.classList.add("SpaceGameMap");
+          bOTShoot = document.getElementById(Botbarrel);
+          bOTShoot.classList.remove("BotSpaceShoot");
+          bOTShoot.classList.add("SpaceGameMap");
+        }
+        for (let i = BotLeft + 100; i <= BotRight + 100; i++) {
+          let bOT = document.getElementById(i);
+          bOT.classList.add("BotSpace");
+          bOT.classList.remove("SpaceGameMap");
+          bOTShoot = document.getElementById(Botbarrel - 1);
+          bOTShoot.classList.add("BotSpaceShoot");
+          bOTShoot.classList.remove("SpaceGameMap");
+        }
+      }
     }
   }
 
-}
-, 1000)
-  };
- 
   function BotShooterEvent() {
     let BNew_Time = BTime;
     setBBullet(Botbarrel + 50);
@@ -80,11 +122,9 @@ clearInterval(CalBotinterval)
         Player_Shoot_Bullet.classList.add("PlayerBullet");
         BNew_Time++;
       }
-    }, 50);
+    }, 150);
     BTime = 1;
   }
-
-
   function BotShooterEvent_Remove() {
     setTimeout(() => {
       let BNew_Time_Tracer = BTime_Tracer;
@@ -93,7 +133,7 @@ clearInterval(CalBotinterval)
         if (BNew_Time_Tracer === 19) {
           clearInterval(Botinterval_Tracer);
           setBBullet(null);
-        } else  {
+        } else {
           Player_Shoot_Bullet_Tracer = document.getElementById(
             Botbarrel + (BNew_Time_Tracer * 100) / 2
           );
@@ -101,8 +141,8 @@ clearInterval(CalBotinterval)
           Player_Shoot_Bullet_Tracer.classList.add("SpaceGameMap");
           BNew_Time_Tracer++;
         }
-      }, 50);
-    }, 50);
+      }, 150);
+    }, 150);
     BTime_Tracer = 1;
   }
   function StartSpaceGame() {
@@ -131,11 +171,10 @@ clearInterval(CalBotinterval)
       PlayerShoot.classList.add("PlayerSpaceShoot");
       PlayerShoot.classList.remove("SpaceGameMap");
     }
-    
   }
   function FocusEvent() {
     PressAnyKeySpace.style.display = "none";
-    BotSpawn()
+    BotSpawn();
   }
   function BullteShooterEvent() {
     let New_Time = Time;
@@ -165,7 +204,7 @@ clearInterval(CalBotinterval)
         if (New_Time_Tracer >= 19) {
           clearInterval(intervalId_Tracer);
           setPBullet(null);
-        } else  {
+        } else {
           Player_Shoot_Bullet_Tracer = document.getElementById(
             Playerbarrel - (New_Time_Tracer * 100) / 2
           );
@@ -177,7 +216,6 @@ clearInterval(CalBotinterval)
     }, 50);
     Time_Tracer = 1;
   }
-
   function handleKeyDown(e) {
     setKeyCode(e.keyCode);
     switch (e.keyCode) {
@@ -232,21 +270,19 @@ clearInterval(CalBotinterval)
       case 32:
         if (!PlayerBullet) {
           // check if there's already a bullet on the screen
-         
           BullteShooterEvent();
           BullteShooterEvent_Remove();
         }
         //Space
         break;
-        case 80:
-          if (!PlayerBullet) {
-            // check if there's already a bullet on the screen
-           
-            BullteShooterEvent();
-            BullteShooterEvent_Remove();
-          }
-          //p
-          break;
+      case 80:
+        if (!PlayerBullet) {
+          // check if there's already a bullet on the screen
+          BullteShooterEvent();
+          BullteShooterEvent_Remove();
+        }
+        //p
+        break;
       default:
         break;
     }
